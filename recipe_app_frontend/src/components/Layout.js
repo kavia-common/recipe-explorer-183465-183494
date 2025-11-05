@@ -5,8 +5,8 @@ import { theme } from "../theme";
 export function Container({ children }) {
   /** Main page container with responsive grid for sidebar + content */
   return (
-    <div style={styles.page}>
-      <div style={styles.pageInner}>{children}</div>
+    <div className="page-outer" style={styles.page}>
+      <div className="page-inner" style={styles.pageInner}>{children}</div>
     </div>
   );
 }
@@ -15,13 +15,13 @@ export function Container({ children }) {
 export function TopNav({ title, search, onSearchChange }) {
   /** Top navigation with title and search input */
   return (
-    <header style={styles.header}>
-      <div style={styles.headerInner}>
+    <header className="navbar" style={styles.header}>
+      <div className="navbar-inner" style={styles.headerInner}>
         <div style={styles.brand}>
-          <div style={styles.brandLogo}>🍳</div>
+          <div className="brand-logo" style={styles.brandLogo}>🍳</div>
           <div>
-            <div style={styles.brandTitle}>{title}</div>
-            <div style={styles.brandSubtitle}>Explore, cook, enjoy</div>
+            <div className="typo-title-lg" style={styles.brandTitle}>{title}</div>
+            <div className="typo-subtle" style={styles.brandSubtitle}>Explore, cook, enjoy</div>
           </div>
         </div>
         <div style={styles.searchWrap}>
@@ -31,11 +31,12 @@ export function TopNav({ title, search, onSearchChange }) {
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             aria-label="Search recipes"
+            className="search-input"
             style={styles.search}
           />
         </div>
       </div>
-      <div style={styles.headerGradient} />
+      <div className="navbar-accent" style={styles.headerGradient} />
     </header>
   );
 }
@@ -55,7 +56,7 @@ export function Sidebar({ filters, onChange, onClear }) {
   const difficulties = ["Easy", "Medium", "Hard"];
 
   return (
-    <aside style={styles.sidebar}>
+    <aside className="panel" style={styles.sidebar}>
       <div style={styles.sidebarHeader}>Filters</div>
       <Field label="Category">
         <select
@@ -166,10 +167,12 @@ const styles = {
     fontWeight: 700,
     color: theme.colors.text,
     fontSize: 18,
+    lineHeight: "24px",
   },
   brandSubtitle: {
     color: theme.colors.textMuted,
     fontSize: 12,
+    lineHeight: "18px",
   },
   searchWrap: {
     marginLeft: "auto",
@@ -189,10 +192,7 @@ const styles = {
     position: "sticky",
     top: 72,
     alignSelf: "start",
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
     borderRadius: theme.radii.lg,
-    boxShadow: theme.shadows.sm,
     padding: 16,
     minWidth: 260,
     height: "fit-content",

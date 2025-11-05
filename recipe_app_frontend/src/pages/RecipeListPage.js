@@ -62,11 +62,11 @@ export default function RecipeListPage({ searchText }) {
         </div>
         <main style={styles.main}>
           {loading ? (
-            <div style={styles.stateBox}>Loading recipes...</div>
+            <div className="panel" style={styles.stateBox}>Loading recipes...</div>
           ) : err ? (
-            <div style={{ ...styles.stateBox, color: theme.colors.error }}>{err}</div>
+            <div className="panel" style={{ ...styles.stateBox, color: theme.colors.error }}>{err}</div>
           ) : items.length === 0 ? (
-            <div style={styles.stateBox}>No recipes found.</div>
+            <div className="panel" style={styles.stateBox}>No recipes found.</div>
           ) : (
             <RecipeGrid
               items={items}
@@ -92,12 +92,8 @@ const styles = {
     minHeight: 320,
   },
   stateBox: {
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
-    borderRadius: theme.radii.lg,
     padding: 24,
     color: theme.colors.textMuted,
-    boxShadow: theme.shadows.sm,
   },
 };
 

@@ -1,2 +1,2 @@
-/* Minimal app-level styles; components use inline theme styles. */
-.App { min-height: 100vh; }
+/* Apply flush app container; detailed theming lives in figma-theme.css */
+.App, .app-root { min-height: 100vh; margin: 0; padding: 0; }

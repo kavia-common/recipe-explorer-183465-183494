@@ -19,7 +19,7 @@ function App() {
           {/* Initial route points to /sign-in for this task */}
           <Route path="/" element={<Navigate to="/sign-in" replace />} />
 
-          {/* Pixel-perfect Sign In screen */}
+          {/* Pixel-perfect Sign In screen (iframe isolated) */}
           <Route path="/sign-in" element={<SignInPage />} />
 
           {/* Existing recipe routes remain accessible */}

@@ -33,24 +33,24 @@ export default function RecipeDetailPage() {
   return (
     <Container>
       {loading ? (
-        <div style={styles.stateBox}>Loading recipe...</div>
+        <div className="panel" style={styles.stateBox}>Loading recipe...</div>
       ) : err ? (
-        <div style={{ ...styles.stateBox, color: theme.colors.error }}>{err}</div>
+        <div className="panel" style={{ ...styles.stateBox, color: theme.colors.error }}>{err}</div>
       ) : !recipe ? (
-        <div style={styles.stateBox}>Recipe not found.</div>
+        <div className="panel" style={styles.stateBox}>Recipe not found.</div>
       ) : (
         <article style={styles.article}>
           <button style={styles.backBtn} onClick={() => navigate(-1)}>&larr; Back</button>
-          <div style={styles.hero}>
+          <div className="panel" style={styles.hero}>
             <img src={recipe.image} alt={recipe.title} style={styles.heroImg} />
             <div style={styles.heroBadgeBar}>
-              <span style={{ ...styles.badge, background: theme.colors.secondary, color: "#111827" }}>
+              <span className="badge" style={{ background: theme.colors.secondary, color: "#111827" }}>
                 {recipe.time}m
               </span>
-              <span style={{ ...styles.badge, background: theme.colors.primary, color: "#fff" }}>
+              <span className="badge" style={{ background: theme.colors.primary, color: "#fff" }}>
                 {recipe.difficulty}
               </span>
-              <span style={{ ...styles.badge, background: theme.colors.background, color: theme.colors.text }}>
+              <span className="badge" style={{ background: theme.colors.background, color: theme.colors.text }}>
                 {recipe.servings} servings
               </span>
             </div>
@@ -61,7 +61,7 @@ export default function RecipeDetailPage() {
           </div>
 
           <div style={styles.contentGrid}>
-            <section style={styles.ingredients}>
+            <section className="panel" style={styles.ingredients}>
               <h2 style={styles.sectionTitle}>Ingredients</h2>
               <ul style={styles.ingList}>
                 {(recipe.ingredients || []).map((ing, i) => (
@@ -80,7 +80,7 @@ export default function RecipeDetailPage() {
               </ul>
             </section>
 
-            <section style={styles.steps}>
+            <section className="panel" style={styles.steps}>
               <h2 style={styles.sectionTitle}>Steps</h2>
               <ol style={styles.stepList}>
                 {(recipe.steps || []).map((s, i) => (
@@ -100,12 +100,8 @@ export default function RecipeDetailPage() {
 
 const styles = {
   stateBox: {
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
-    borderRadius: theme.radii.lg,
     padding: 24,
     color: theme.colors.textMuted,
-    boxShadow: theme.shadows.sm,
   },
   article: {
     display: "block",
@@ -124,8 +120,6 @@ const styles = {
     position: "relative",
     overflow: "hidden",
     borderRadius: theme.radii.lg,
-    border: `1px solid ${theme.colors.border}`,
-    boxShadow: theme.shadows.md,
     aspectRatio: "16 / 7",
     background: theme.colors.surface,
   },
@@ -141,12 +135,6 @@ const styles = {
     left: 12,
     display: "flex",
     gap: 8,
-  },
-  badge: {
-    fontSize: 12,
-    padding: "6px 10px",
-    borderRadius: theme.radii.pill,
-    boxShadow: theme.shadows.sm,
   },
   title: {
     marginTop: 16,
@@ -169,18 +157,12 @@ const styles = {
     marginBottom: 8,
   },
   ingredients: {
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
     borderRadius: theme.radii.lg,
     padding: 16,
-    boxShadow: theme.shadows.sm,
   },
   steps: {
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
     borderRadius: theme.radii.lg,
     padding: 16,
-    boxShadow: theme.shadows.sm,
   },
   ingList: {
     listStyle: "none",

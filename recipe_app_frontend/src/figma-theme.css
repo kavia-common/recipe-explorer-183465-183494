@@ -1,0 +1,160 @@
+:root {
+  /* Figma-inspired tokens (aligned with Ocean Professional but with Figma typography) */
+  --color-primary: #2563EB;
+  --color-secondary: #F59E0B;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+
+  /* Typography (Figma's Poppins for app; iframe has its own) */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* Radii and elevations */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Gradient strip for nav accent */
+  --header-gradient-from: rgba(59,130,246,0.08);
+  --header-gradient-to: #F9FAFB;
+}
+
+/* Reset and global base. Keep minimal to avoid conflicts and ensure pixel accuracy. */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links, images, and form controls consistent with Figma style */
+a { color: var(--color-primary); text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; }
+input, select, textarea { font: inherit; }
+
+/* App container flush rendering: ensure no outer margins */
+.app-root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utility classes that match Figma spacing and typography intent */
+.typo-title-lg {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.typo-subtle {
+  color: var(--color-muted);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.navbar-accent {
+  height: 6px;
+  background: linear-gradient(90deg, var(--header-gradient-from), var(--header-gradient-to));
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  display: grid;
+  place-items: center;
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  outline: none;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Cards and panels */
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Ensure pages render flush with consistent inner gutters */
+.page-outer {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.page-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* Explicitly avoid any global iframe styling to protect Sign-In pixel accuracy */
+iframe { border: none; }

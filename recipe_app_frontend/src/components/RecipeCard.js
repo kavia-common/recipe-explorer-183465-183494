@@ -5,14 +5,14 @@ import { theme } from "../theme";
 export function RecipeCard({ recipe, onClick }) {
   /** Card showing recipe image, title, tags, and meta. */
   return (
-    <div style={styles.card} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onClick?.();}}>
+    <div className="panel" style={styles.card} onClick={onClick} role="button" tabIndex={0} onKeyDown={(e)=>{ if(e.key==='Enter') onClick?.();}}>
       <div style={styles.imageWrap}>
         <img src={recipe.image} alt={recipe.title} style={styles.image} />
         <div style={styles.badgeBar}>
-          <span style={{ ...styles.badge, background: theme.colors.secondary, color: "#111827" }}>
+          <span className="badge" style={{ background: theme.colors.secondary, color: "#111827" }}>
             {recipe.time}m
           </span>
-          <span style={{ ...styles.badge, background: theme.colors.primary, color: "#fff" }}>
+          <span className="badge" style={{ background: theme.colors.primary, color: "#fff" }}>
             {recipe.difficulty}
           </span>
         </div>
@@ -53,10 +53,6 @@ const styles = {
     gap: 16,
   },
   card: {
-    background: theme.colors.surface,
-    border: `1px solid ${theme.colors.border}`,
-    borderRadius: theme.radii.lg,
-    boxShadow: theme.shadows.sm,
     overflow: "hidden",
     cursor: "pointer",
     transition: theme.transitions.base,
@@ -79,12 +75,6 @@ const styles = {
     display: "flex",
     gap: 8,
   },
-  badge: {
-    fontSize: 12,
-    padding: "6px 10px",
-    borderRadius: theme.radii.pill,
-    boxShadow: theme.shadows.sm,
-  },
   content: {
     padding: 12,
   },
@@ -92,6 +82,7 @@ const styles = {
     fontWeight: 600,
     color: theme.colors.text,
     marginBottom: 6,
+    lineHeight: "22px",
   },
   tags: {
     display: "flex",
