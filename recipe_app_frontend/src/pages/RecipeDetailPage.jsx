@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../components/Layout";
+import { Container } from "../components/Layout.jsx";
 import { getRecipeById } from "../services/api";
 import { theme } from "../theme";
 import { useNavigate, useParams } from "react-router-dom";

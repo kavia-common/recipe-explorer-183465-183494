@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-import { TopNav, Container } from "./components/Layout";
-import RecipeListPage from "./pages/RecipeListPage";
-import RecipeDetailPage from "./pages/RecipeDetailPage";
-import SignInPage from "./pages/SignInPage";
+import { TopNav, Container } from "./components/Layout.jsx";
+import RecipeListPage from "./pages/RecipeListPage.jsx";
+import RecipeDetailPage from "./pages/RecipeDetailPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // PUBLIC_INTERFACE

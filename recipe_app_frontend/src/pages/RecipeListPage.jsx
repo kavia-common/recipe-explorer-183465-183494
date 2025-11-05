@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Container, Sidebar } from "../components/Layout";
-import { RecipeGrid } from "../components/RecipeCard";
+import { Container, Sidebar } from "../components/Layout.jsx";
+import { RecipeGrid } from "../components/RecipeCard.jsx";
 import { getRecipes } from "../services/api";
 import { theme } from "../theme";
 import { useNavigate, useSearchParams } from "react-router-dom";
