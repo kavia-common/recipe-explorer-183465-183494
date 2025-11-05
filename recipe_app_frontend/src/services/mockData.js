@@ -1,0 +1,80 @@
+export const mockRecipes = [
+  {
+    id: "1",
+    title: "Lemon Herb Grilled Chicken",
+    image: "https://images.unsplash.com/photo-1604908554023-7f4ebaa69bfb?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Healthy", "Grill"],
+    category: "Main",
+    cuisine: "American",
+    difficulty: "Easy",
+    time: 30,
+    servings: 4,
+    ingredients: [
+      { text: "4 chicken breasts", checked: false },
+      { text: "2 tbsp olive oil", checked: false },
+      { text: "1 lemon (zest and juice)", checked: false },
+      { text: "2 cloves garlic, minced", checked: false },
+      { text: "1 tsp dried oregano", checked: false },
+      { text: "Salt & pepper to taste", checked: false },
+    ],
+    steps: [
+      "Combine olive oil, lemon zest and juice, garlic, oregano, salt, and pepper.",
+      "Marinate chicken for at least 15 minutes.",
+      "Preheat grill to medium-high and cook 6-7 minutes per side.",
+      "Rest 5 minutes, then slice and serve.",
+    ],
+  },
+  {
+    id: "2",
+    title: "Creamy Mushroom Pasta",
+    image: "https://images.unsplash.com/photo-1514511903896-59bead8c3b43?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Vegetarian", "Comfort"],
+    category: "Main",
+    cuisine: "Italian",
+    difficulty: "Medium",
+    time: 25,
+    servings: 2,
+    ingredients: [
+      { text: "200g pasta", checked: false },
+      { text: "200g mushrooms, sliced", checked: false },
+      { text: "1 tbsp butter", checked: false },
+      { text: "1 clove garlic, minced", checked: false },
+      { text: "150ml cream", checked: false },
+      { text: "Parmesan, salt, pepper", checked: false },
+    ],
+    steps: [
+      "Cook pasta in salted water until al dente.",
+      "Sauté mushrooms in butter, add garlic.",
+      "Stir in cream, reduce slightly, season.",
+      "Toss with pasta and finish with Parmesan.",
+    ],
+  },
+  {
+    id: "3",
+    title: "Avocado Toast with Poached Egg",
+    image: "https://images.unsplash.com/photo-1543751416-705d3e34d948?q=80&w=1200&auto=format&fit=crop",
+    tags: ["Breakfast", "Quick"],
+    category: "Breakfast",
+    cuisine: "Fusion",
+    difficulty: "Easy",
+    time: 10,
+    servings: 1,
+    ingredients: [
+      { text: "2 slices sourdough", checked: false },
+      { text: "1 ripe avocado", checked: false },
+      { text: "1 egg", checked: false },
+      { text: "Chili flakes, salt, pepper", checked: false },
+      { text: "Lemon juice", checked: false },
+    ],
+    steps: [
+      "Toast the bread slices.",
+      "Mash avocado with lemon, salt, pepper.",
+      "Poach the egg for 3-4 minutes.",
+      "Spread avocado on toast, top with egg and chili flakes.",
+    ],
+  },
+];
+
+export function simulateDelay(min = 200, max = 700) {
+  return new Promise((resolve) => setTimeout(resolve, Math.random() * (max - min) + min));
+}
