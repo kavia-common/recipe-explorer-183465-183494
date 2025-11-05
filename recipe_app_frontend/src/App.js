@@ -14,22 +14,35 @@ function App() {
   return (
     <BrowserRouter>
       <TopNav title="Recipe Explorer" search={search} onSearchChange={setSearch} />
-      <Container>
-        <Routes>
-          {/* Initial route points to /sign-in for this task */}
-          <Route path="/" element={<Navigate to="/sign-in" replace />} />
+      {/* Routes are split so that /sign-in renders without the padded Container for pixel-perfect parity */}
+      <Routes>
+        {/* Initial route points to /sign-in for this task */}
+        <Route path="/" element={<Navigate to="/sign-in" replace />} />
 
-          {/* Pixel-perfect Sign In screen (iframe isolated) */}
-          <Route path="/sign-in" element={<SignInPage />} />
+        {/* Pixel-perfect Sign In screen (iframe isolated) - no Container wrapper */}
+        <Route path="/sign-in" element={<SignInPage />} />
 
-          {/* Existing recipe routes remain accessible */}
-          <Route path="/recipes" element={<RecipeListPage searchText={search} />} />
-          <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+        {/* All other routes use the padded Container layout */}
+        <Route
+          path="/recipes"
+          element={
+            <Container>
+              <RecipeListPage searchText={search} />
+            </Container>
+          }
+        />
+        <Route
+          path="/recipes/:id"
+          element={
+            <Container>
+              <RecipeDetailPage />
+            </Container>
+          }
+        />
 
-          {/* Fallback */}
-          <Route path="*" element={<div style={{ padding: 24 }}>Not found</div>} />
-        </Routes>
-      </Container>
+        {/* Fallback */}
+        <Route path="*" element={<div style={{ padding: 24 }}>Not found</div>} />
+      </Routes>
     </BrowserRouter>
   );
 }
