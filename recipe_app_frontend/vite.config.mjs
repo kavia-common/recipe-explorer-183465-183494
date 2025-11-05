@@ -7,11 +7,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: Number(process.env.REACT_APP_PORT) || 3000,
-    host: true
+    host: true,
+    // Allow the Kavia preview host
+    allowedHosts: ['vscode-internal-33035-beta.beta01.cloud.kavia.ai'],
   },
   preview: {
     port: Number(process.env.REACT_APP_PORT) || 3000,
-    host: true
+    host: true,
+    // Ensure preview also allows the host if Vite respects server.allowedHosts primarily
+    allowedHosts: ['vscode-internal-33035-beta.beta01.cloud.kavia.ai'],
   },
   build: {
     outDir: 'build'
